@@ -8,13 +8,19 @@ import { AppComponent } from './typescripts/app.component';
 import { NavbarComponent } from './typescripts/navbar.component';
 import { ScriptsComponent } from './typescripts/scripts.component';
 import { LoginComponent } from './typescripts/login.component';
+import { RegisterComponent } from './typescripts/register.component';
 import { PageNotFoundComponent } from './typescripts/pageNotFound.component';
 
 const appRoutes: Routes = [
     { path: 'login',
         component: LoginComponent
     },
-    { path: '**', component: PageNotFoundComponent }
+    { path: 'register',
+        component: RegisterComponent
+    },
+    { path: '**',
+        component: PageNotFoundComponent
+    }
 ];
 
 @NgModule({
@@ -23,6 +29,7 @@ const appRoutes: Routes = [
     NavbarComponent,
     ScriptsComponent,
     LoginComponent,
+    RegisterComponent,
     PageNotFoundComponent
   ],
   imports: [
