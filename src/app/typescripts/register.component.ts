@@ -18,10 +18,11 @@ model = new User('Your Email','Your Username','Your Password','Your Firstname','
 //on submit action declared on <form> tag
 onSubmit() {
 //    this.submitted = true;
-    console.log(JSON.stringify(this.model));
-//    this.userService.getUsers();
-    let response =this.userService.getUsers().subscribe();
-    console.log(response);
+    console.log(this.model);
+
+    //make the post request
+    let response =this.userService.addUser(this.model).subscribe();
+//    console.log(response);
 
 }
 
