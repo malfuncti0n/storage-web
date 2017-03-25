@@ -10,6 +10,7 @@ import { ScriptsComponent } from './typescripts/scripts.component';
 import { LoginComponent } from './typescripts/login.component';
 import { RegisterComponent } from './typescripts/register.component';
 import { PageNotFoundComponent } from './typescripts/pageNotFound.component';
+import { UserService }  from './services/user.service';
 
 const appRoutes: Routes = [
     { path: 'login',
@@ -38,7 +39,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [UserService],
 bootstrap: [AppComponent,NavbarComponent,ScriptsComponent]
 })
 export class AppModule { }
