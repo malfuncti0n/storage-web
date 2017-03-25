@@ -7,9 +7,14 @@ import { User } from '../user.register.model';
 })
 export class RegisterComponent {
 submitted = false;
-model = new User('emai','username','firstname','last','password');
-onSubmit() { this.submitted = true; }
+model = new User('Your Email','Your Username','Your Password','Your Firstname','Your Lastname');
+onSubmit() { this.submitted = true;
+
+    console.log(JSON.stringify(this.model));
+
+}
 
  // TODO: Remove this when we're done
 get diagnostic() { return JSON.stringify(this.model); }
+
 }
