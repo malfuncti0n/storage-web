@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import { Cookie } from 'ng2-cookies/ng2-cookies'
 
 import { AppComponent } from './Controllers/app.component';
 import { NavbarComponent } from './Controllers/navbar.component';
@@ -11,6 +12,7 @@ import { LoginComponent } from './Controllers/login.component';
 import { RegisterComponent } from './Controllers/register.component';
 import { PageNotFoundComponent } from './Controllers/pageNotFound.component';
 import { UserService }  from './Services/user.service';
+import { ApplicationComponent }  from './Controllers/application.component';
 
 const appRoutes: Routes = [
     { path: 'login',
@@ -18,6 +20,10 @@ const appRoutes: Routes = [
     },
     { path: 'register',
         component: RegisterComponent
+    },
+    {
+      path: 'application',
+        component: ApplicationComponent
     },
     { path: '**',
         component: PageNotFoundComponent
@@ -31,13 +37,14 @@ const appRoutes: Routes = [
     ScriptsComponent,
     LoginComponent,
     RegisterComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ApplicationComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
   ],
   providers: [UserService],
 bootstrap: [AppComponent,NavbarComponent,ScriptsComponent]

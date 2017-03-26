@@ -2,6 +2,8 @@ import { Injectable }     from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { UserRegister }           from '../Models/user.register.model';
 import {Observable} from 'rxjs/Rx';
+import { Cookie } from 'ng2-cookies/ng2-cookies';
+import { RouterModule, Routes, Router } from '@angular/router';
 
 // Import RxJs required methods
 import 'rxjs/add/operator/map';
@@ -10,7 +12,7 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class UserService {
      // Resolve HTTP using the constructor
-     constructor (private http: Http) {}
+constructor (private http: Http) {}
      // private instance variable to hold base url
      private usersUrl = 'https://api-storage.herokuapp.com/users';
 
@@ -18,9 +20,20 @@ export class UserService {
 
          // ...using get request
         let apiurl =this.usersUrl.concat('/',body['username'],'/',body['password']);
-            return this.http.get(apiurl).
-           map((res:Response) => res.json());
-     }
+            return this.http.get(apiurl)
+            .map(data => {
+            data.json();
+            // the console.log(...) line prevents your code from working
+            // either remove it or add the line below (return ...)
+            //console.log("I CAN SEE DATA HERE: ", data.json());
+
+                Cookie.set('Storage_project', JSON.stringify(data.json()), 10 /*days from now*/);
+
+
+
+    });
+
+    }
         addUser(body: Object) {
         let bodyString = JSON.stringify(body); // Stringify payload
         let headers      = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
