@@ -1,5 +1,8 @@
 # StorageWeb
 
+
+this client side app part of Storage Project is running on heroku https://storage-web.herokuapp.com based on master branch. All working REST requests are accesible for testing
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
 ## Development server
