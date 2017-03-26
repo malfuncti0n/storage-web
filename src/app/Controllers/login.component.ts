@@ -20,7 +20,7 @@ onSubmit() {
     console.log(this.model);
 
     //make the post request
-    let response =this.userService.getUsers().subscribe();
+    let response =this.userService.getUsers(this.model).subscribe();
 //    console.log(response);
 
 }

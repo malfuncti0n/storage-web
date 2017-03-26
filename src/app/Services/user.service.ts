@@ -12,12 +12,13 @@ export class UserService {
      // Resolve HTTP using the constructor
      constructor (private http: Http) {}
      // private instance variable to hold base url
-     private usersUrl = 'http://127.0.0.1:8080/users';
+     private usersUrl = 'https://api-storage.herokuapp.com/users';
 
-         getUsers(){
+    getUsers(body: Object){
 
          // ...using get request
-    return this.http.get(this.usersUrl).
+        let apiurl =this.usersUrl.concat('/',body['username'],'/',body['password']);
+            return this.http.get(apiurl).
            map((res:Response) => res.json());
      }
         addUser(body: Object) {
