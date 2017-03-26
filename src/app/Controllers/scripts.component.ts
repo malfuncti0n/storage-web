@@ -2,6 +2,6 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'custom-scripts',
-    templateUrl: '../templates/scripts.component.html'
+    templateUrl: '../views/scripts.component.html'
 })
 export class ScriptsComponent { }

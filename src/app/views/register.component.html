@@ -15,7 +15,7 @@
                             <input type="text" class="form-control" name="email" placeholder="Email Address" [(ngModel)]="model.email" required #email="ngModel"> </div>
                     </div>
                     <div class="form-group">
-                        <div [hidden]="username.valid || Username.pristine" class="alert alert-danger"> Username is required </div>
+                        <div [hidden]="username.valid || username.pristine" class="alert alert-danger"> Username is required </div>
                         <label for="username" class="col-md-3 control-label">username</label>
                         <div class="col-md-9">
                             <input type="text" class="form-control" name="username" placeholder="username" [(ngModel)]="model.username" required #username="ngModel"> </div>

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'custom-navbar',
-    templateUrl: '../templates/navbar.component.html'
+    templateUrl: '../views/navbar.component.html'
 })
 export class NavbarComponent {
     //function to check collapse state for navigation menu and togle collapse

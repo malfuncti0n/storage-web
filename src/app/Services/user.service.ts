@@ -1,6 +1,6 @@
 import { Injectable }     from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { User }           from '../user.register.model';
+import { UserRegister }           from '../Models/user.register.model';
 import {Observable} from 'rxjs/Rx';
 
 // Import RxJs required methods
@@ -30,7 +30,7 @@ export class UserService {
     }
 
     // Update a comment
-    updateUser (body: Object): Observable<User[]> {
+    updateUser (body: Object): Observable<UserRegister[]> {
         let bodyString = JSON.stringify(body); // Stringify payload
         let headers      = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
         let options       = new RequestOptions({ headers: headers }); // Create a request option
@@ -41,7 +41,7 @@ export class UserService {
     }
 
     // Delete a comment
-    removeUser (id:string): Observable<User[]> {
+    removeUser (id:string): Observable<UserRegister[]> {
         return this.http.delete(`${this.usersUrl}/${id}`) // ...using put request
                          .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
                          .catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
